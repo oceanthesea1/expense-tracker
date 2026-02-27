@@ -1,4 +1,5 @@
 import { PiggyBank, ReceiptText, Wallet2 } from 'lucide-react'
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 
 function CardInfo({ budgetList }) {
@@ -25,15 +26,17 @@ function CardInfo({ budgetList }) {
   return (
     <div>
       {budgetList?.length > 0? <div className='mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
-        <div className='p-6 bg-white border border-gray-300 rounded-lg shadow-md flex justify-between items-center'>
-          <div>
-            <h2 className='text-sm text-gray-600'>Total Budget</h2>
-            <h2 className='font-bold text-2xl text-gray-900'>
-              ${totalBudget}
-            </h2>
+        <Link href="/dashboard/budgets" className='hover:shadow-md rounded-lg'>
+          <div className='p-6 bg-white border border-gray-300 rounded-lg shadow-md flex justify-between items-center'>
+            <div>
+              <h2 className='text-sm text-gray-600'>Total Budget</h2>
+              <h2 className='font-bold text-2xl text-gray-900'>
+                ${totalBudget}
+              </h2>
+            </div>
+            <PiggyBank size="30px" />
           </div>
-          <PiggyBank size="30px" />
-        </div>
+        </Link>
         <div className='p-6 bg-white border border-gray-300 rounded-lg shadow-md flex justify-between items-center'>
           <div>
             <h2 className='text-sm text-gray-600'>Total Spent</h2>

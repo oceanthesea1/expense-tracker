@@ -27,17 +27,15 @@ function SideNav() {
             icon: Receipt, 
             path: '/dashboard/expenses'
         }, 
-        {
-            id: 4,
-            name: 'Upgrade',
-            icon: ShieldCheck, 
-            path: '/dashboard/upgrade'
-        }, 
     ]
     const path = usePathname();
   return (
     <div className="h-screen  border shadow-sm">
-        <Image src="/logo.svg" alt="Logo" width={120} height={50} className="mx-auto pt-5" />
+        <div className='mb-15'>
+            <Link href="/dashboard">
+                <Image src="/logo.svg" alt="Logo" width={120} height={50} className="mx-auto pt-5" />
+            </Link>
+        </div>
         <div className='mt-5'>
             {menuList.map((menu) => (
                 <Link href={menu.path} key={menu.id}>

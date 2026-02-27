@@ -12,7 +12,7 @@ import ExpensesListTable from './expenses/_components/expenseslisttable';
 function Dashboard() {
   const [budgetList, setBudgetList] = useState([]);
   const [expensesList, setExpensesList] = useState([]);
-    const {user} = useUser();
+  const {user} = useUser();
   
     useEffect(() => {
       user&&getBudgetList();
@@ -45,6 +45,7 @@ function Dashboard() {
         name: Expenses.name,
         amount: Expenses.amount,
         createdAt: Expenses.createdAt,
+        budgetId: Expenses.budgetId,
       }).from(Budgets).rightJoin(Expenses, eq(Budgets.id, Expenses.budgetId))
       .where(eq(Budgets.createdBy, user?.primaryEmailAddress?.emailAddress))
       .orderBy(Expenses.createdAt, 'desc');
@@ -54,8 +55,8 @@ function Dashboard() {
 
   return (
     <div className='p-6'>
-      <h2 className='font-bold text-3xl'>Hi, {user?.fullName}</h2>
-      <p className='text-gray-500'>Welcome, ready to catch some fish?</p>
+      <h2 className='font-bold text-3xl'>Welcome, {user?.fullName}</h2>
+      <p className='text-gray-500'>Ready to get out there and catch some fish?</p>
 
       <CardInfo budgetList={budgetList} />
 
@@ -65,7 +66,7 @@ function Dashboard() {
 
           <ExpensesListTable expensesList={expensesList} refreshData={() => getBudgetList()} />
         </div>
-        <div className='grid gap-5'>
+        <div className='grid gap-5 self-start'>
           <h2 className='font-bold text-lg'>Latest Budgets</h2>
           {budgetList.map((budget, index) => (
             <BudgetItem budget={budget} key={index}/>

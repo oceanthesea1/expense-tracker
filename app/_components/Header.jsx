@@ -20,12 +20,12 @@ function Header() {
         <div className="flex gap-3">
           <SignedOut>
             <SignInButton>
-              <button className="bg-gradient-to-r from-[#1E3A8A] to-[#0F172A] text-white rounded-lg font-semibold text-sm sm:text-base h-10 sm:h-12 px-6 sm:px-8 shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl focus:outline-none">
+              <button className="bg-gradient-to-r from-[#1E3A8A] to-[#0F172A] text-white rounded-lg font-semibold text-sm sm:text-base h-10 sm:h-12 px-6 sm:px-8 shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl focus:outline-none cursor-pointer">
                 Sign In
               </button>
             </SignInButton>
             <SignUpButton>
-              <button className="bg-gradient-to-r from-[#3B82F6] to-[#1D4ED8] text-white rounded-lg font-semibold text-sm sm:text-base h-10 sm:h-12 px-6 sm:px-8 shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl focus:outline-none">
+              <button className="bg-gradient-to-r from-[#3B82F6] to-[#1D4ED8] text-white rounded-lg font-semibold text-sm sm:text-base h-10 sm:h-12 px-6 sm:px-8 shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl focus:outline-none cursor-pointer">
                 Sign Up
               </button>
             </SignUpButton>
