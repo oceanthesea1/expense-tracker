@@ -41,6 +41,13 @@ function ExpensesListTable({ expensesList, refreshData }) {
       router.push(`/dashboard/expenses/${budgetId}`);
     }
 
+    const formatCurrency = (amount) => {
+      return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+      }).format(amount);
+    };
+
   return (
     <div>
       <h2 className='mt-5 font-bold text-lg'>List of Expenses</h2>
@@ -56,7 +63,7 @@ function ExpensesListTable({ expensesList, refreshData }) {
             onClick={(event) => goToBudget(expense.budgetId, event)}
           >
             <div className="flex-1">{expense.name}</div>
-            <div className="flex-1">${expense.amount}</div>
+            <div className="flex-1">{formatCurrency(expense.amount)}</div>
             <div className="flex-1">{formatDateTime(expense.createdAt)}</div>
             <div className="flex-1 flex gap-2">
               <Button className="cursor-pointer transform transition-all duration-200 ease-in-out hover:scale-105"><PenBox /> Edit</Button>

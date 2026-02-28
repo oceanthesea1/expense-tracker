@@ -30,7 +30,7 @@ function ExpensesPage() {
 
   return (
     <div className='pr-5 pl-5'>
-        <ExpensesListTable expensesList={expensesList} />
+        <ExpensesListTable expensesList={expensesList} refreshData={() => getExpensesList()} />
     </div>
   )
 }

@@ -23,6 +23,13 @@ function CardInfo({ budgetList }) {
       setTotalSpend(totalSpend_);
     }
 
+    const formatCurrency = (value) => {
+      return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+      }).format(value || 0);
+    };
+
   return (
     <div>
       {budgetList?.length > 0? <div className='mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
@@ -31,7 +38,7 @@ function CardInfo({ budgetList }) {
             <div>
               <h2 className='text-sm text-gray-600'>Total Budget</h2>
               <h2 className='font-bold text-2xl text-gray-900'>
-                ${totalBudget}
+                {formatCurrency(totalBudget)}
               </h2>
             </div>
             <PiggyBank size="30px" />
@@ -42,7 +49,7 @@ function CardInfo({ budgetList }) {
             <div>
               <h2 className='text-sm text-gray-600'>Total Spent</h2>
               <h2 className='font-bold text-2xl text-gray-900'>
-                ${totalSpend}
+                {formatCurrency(totalSpend)}
               </h2>
             </div>
             <ReceiptText size="30px" />
