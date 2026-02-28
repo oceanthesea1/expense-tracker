@@ -37,24 +37,28 @@ function CardInfo({ budgetList }) {
             <PiggyBank size="30px" />
           </div>
         </Link>
-        <div className='p-6 bg-white border border-gray-300 rounded-lg shadow-md flex justify-between items-center'>
-          <div>
-            <h2 className='text-sm text-gray-600'>Total Spent</h2>
-            <h2 className='font-bold text-2xl text-gray-900'>
-              ${totalSpend}
-            </h2>
+        <Link href="/dashboard/expenses" className='hover:shadow-md rounded-lg'>
+          <div className='p-6 bg-white border border-gray-300 rounded-lg shadow-md flex justify-between items-center'>
+            <div>
+              <h2 className='text-sm text-gray-600'>Total Spent</h2>
+              <h2 className='font-bold text-2xl text-gray-900'>
+                ${totalSpend}
+              </h2>
+            </div>
+            <ReceiptText size="30px" />
           </div>
-          <ReceiptText size="30px" />
-        </div>
-        <div className='p-6 bg-white border border-gray-300 rounded-lg shadow-md flex justify-between items-center'>
-          <div>
-            <h2 className='text-sm text-gray-600'>No. Of Budget</h2>
-            <h2 className='font-bold text-2xl text-gray-900'>
-              {budgetList?.length || 0 }
-            </h2>
+        </Link>
+        <Link href="/dashboard/budgets" className='hover:shadow-md rounded-lg'>
+          <div className='p-6 bg-white border border-gray-300 rounded-lg shadow-md flex justify-between items-center'>
+            <div>
+              <h2 className='text-sm text-gray-600'>No. Of Budget</h2>
+              <h2 className='font-bold text-2xl text-gray-900'>
+                {budgetList?.length || 0 }
+              </h2>
+            </div>
+            <Wallet2 size="30px" />
           </div>
-          <Wallet2 size="30px" />
-        </div>
+        </Link>
       </div>
       : 
       <div className='mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
