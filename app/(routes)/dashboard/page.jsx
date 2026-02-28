@@ -58,7 +58,7 @@ function Dashboard() {
       <h2 className='font-bold text-3xl'>Welcome, {user?.fullName}</h2>
       <p className='text-gray-500'>Ready to get out there and catch some fish?</p>
 
-      <CardInfo budgetList={budgetList} />
+      <CardInfo budgetList={budgetList} expensesList={expensesList} />
 
       <div className='grid grid-cols-1 md:grid-cols-3 mt-5 gap-5'>
         <div className='md:col-span-2'>

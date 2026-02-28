@@ -58,17 +58,15 @@ function ExpensesData({params}) {
     }
 
     const getExpensesList = async () => {
-      const result = await db.select({
-        id: Expenses.id,
-        name: Expenses.name,
-        amount: Expenses.amount,
-        createdAt: Expenses.createdAt,
-        budgetId: Expenses.budgetId,
-      }).from(Budgets).rightJoin(Expenses, eq(Budgets.id, Expenses.budgetId))
-      .where(eq(Budgets.createdBy, user?.primaryEmailAddress?.emailAddress))
-      .orderBy(Expenses.createdAt, 'desc');
-
-      setExpensesList(result);
+        const result = await db.select({
+            id: Expenses.id,
+            name: Expenses.name,
+            amount: Expenses.amount,
+            createdAt: Expenses.createdAt,
+            budgetId: Expenses.budgetId,
+        }).from(Expenses).where(eq(Expenses.budgetId, id))
+        .orderBy(Expenses.id, 'desc');
+        setExpensesList(result);
     }
 
     const deleteBudget = async () => {
