@@ -6,6 +6,7 @@ import { Trash, PenBox } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import React from 'react'
 import { toast } from 'sonner';
+import EditExpense from './editexpense';
 
 const formatDateTime = (dateString) => {
   const date = new Date(dateString);
@@ -66,7 +67,7 @@ function ExpensesListTable({ expensesList, refreshData }) {
             <div className="flex-1">{formatCurrency(expense.amount)}</div>
             <div className="flex-1">{formatDateTime(expense.createdAt)}</div>
             <div className="flex-1 flex gap-2">
-              <Button className="cursor-pointer transform transition-all duration-200 ease-in-out hover:scale-105"><PenBox /> Edit</Button>
+              <EditExpense expenseInfo={expense} refreshData={refreshData} />
               <Button className="cursor-pointer transform transition-all duration-200 ease-in-out hover:scale-105" variant='destructive' onClick = {(e) => {e.stopPropagation(); deleteExpense(expense);}}><Trash/> Delete</Button>
             </div>
           </div>
